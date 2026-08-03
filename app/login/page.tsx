@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Logo from "@/components/Logo";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
@@ -19,6 +20,9 @@ export default function LoginPage() {
       <section className="py-20">
         <div className="mx-auto max-w-md px-4 sm:px-6 lg:px-8">
           <div className="rounded-xl border border-border bg-white p-8 shadow-sm">
+            <div className="mb-8 flex justify-center">
+              <Logo height={56} linked={false} />
+            </div>
             <form className="space-y-5" action="#" method="post">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-brand-dark">

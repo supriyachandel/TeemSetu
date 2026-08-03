@@ -27,6 +27,10 @@ export const metadata: Metadata = {
     type: "website",
     siteName: siteConfig.name,
   },
+  icons: {
+    icon: "/teamsetu-logo.png",
+    apple: "/teamsetu-logo.png",
+  },
 };
 
 export default function RootLayout({

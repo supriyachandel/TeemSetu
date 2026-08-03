@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
 import { navLinks, siteConfig } from "@/lib/data";
 
 export default function Footer() {
@@ -7,12 +8,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-accent text-sm font-bold text-brand-dark">
-                TS
-              </div>
-              <span className="text-sm font-semibold">{siteConfig.name}</span>
-            </div>
+            <Logo height={48} linked={false} />
             <p className="mt-4 text-sm text-white/70">
               All-in-one workforce management for modern organizations.
             </p>
