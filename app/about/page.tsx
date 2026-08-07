@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import CTA from "@/components/CTA";
 import { siteConfig, whyPoints } from "@/lib/data";
 
+
 export const metadata: Metadata = {
   title: "About",
   description:
