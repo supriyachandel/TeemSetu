@@ -2,14 +2,14 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #111827;
-  --brand-dark: #1a2b3c;
-  --brand: #00a896;
-  --brand-light: #00bfa5;
-  --brand-accent: #a2d149;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --surface: #f9fafb;
+  --foreground: #0f172a;
+  --brand-dark: #002b66;
+  --brand: #25a244;
+  --brand-light: #34c759;
+  --brand-accent: #25a244;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --surface: #f8fafc;
 }
 
 @theme inline {
@@ -34,4 +34,16 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+.hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(37, 162, 68, 0.08), transparent),
+    radial-gradient(ellipse 60% 50% at 100% 0%, rgba(0, 43, 102, 0.06), transparent),
+    linear-gradient(to bottom, #ffffff, #f8fafc);
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
 }

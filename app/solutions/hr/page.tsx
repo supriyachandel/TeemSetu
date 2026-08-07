@@ -7,7 +7,7 @@ import CTA from "@/components/CTA";
 export const metadata: Metadata = {
   title: "HR Solution",
   description:
-    "Simplify everyday HR operations with Team Setu — manage employees, attendance, leaves, payroll and workforce coordination.",
+    "Simplify everyday HR operations with TeemSetu — manage employees, attendance, leaves, payroll and workforce coordination.",
 };
 
 const hrModules = [

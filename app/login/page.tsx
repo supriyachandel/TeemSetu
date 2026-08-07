@@ -6,7 +6,7 @@ import PageHeader from "@/components/PageHeader";
 export const metadata: Metadata = {
   title: "Login",
   description:
-    "Sign in to your Team Setu account to access your Admin, HR or Employee dashboard.",
+    "Sign in to your TeemSetu account to access your Admin, HR or Employee dashboard.",
 };
 
 export default function LoginPage() {
@@ -21,7 +21,7 @@ export default function LoginPage() {
         <div className="mx-auto max-w-md px-4 sm:px-6 lg:px-8">
           <div className="rounded-xl border border-border bg-white p-8 shadow-sm">
             <div className="mb-8 flex justify-center">
-              <Logo height={56} linked={false} />
+              <Logo height={84} linked={false} />
             </div>
             <form className="space-y-5" action="#" method="post">
               <div>

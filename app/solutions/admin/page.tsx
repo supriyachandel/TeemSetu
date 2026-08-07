@@ -7,7 +7,7 @@ import CTA from "@/components/CTA";
 export const metadata: Metadata = {
   title: "Admin Solution",
   description:
-    "Complete organization-wide control with Team Setu Admin dashboard — users, roles, permissions, subscriptions and more.",
+    "Complete organization-wide control with TeemSetu Admin dashboard — users, roles, permissions, subscriptions and more.",
 };
 
 const adminModules = [

@@ -7,7 +7,7 @@ import { coreFeatures } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Features",
   description:
-    "Explore all features of Team Setu — employee management, attendance, leave, payroll, projects, tasks, reports and more.",
+    "Explore all features of TeemSetu — employee management, attendance, leave, payroll, projects, tasks, reports and more.",
 };
 
 export default function FeaturesPage() {
@@ -29,7 +29,7 @@ export default function FeaturesPage() {
       </section>
       <CTA
         heading="See These Features in Action"
-        description="Book a personalized demo and explore how Team Setu can transform your workforce management."
+        description="Book a personalized demo and explore how TeemSetu can transform your workforce management."
       />
     </>
   );

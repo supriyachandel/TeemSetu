@@ -7,7 +7,7 @@ import { resources } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Resources",
   description:
-    "HR guides, product documentation, FAQs and resources to help you get the most from Team Setu.",
+    "HR guides, product documentation, FAQs and resources to help you get the most from TeemSetu.",
 };
 
 export default function ResourcesPage() {
@@ -44,7 +44,7 @@ export default function ResourcesPage() {
       <FAQ />
       <CTA
         heading="Need Help Getting Started?"
-        description="Our team is here to help you configure and launch Team Setu for your organization."
+        description="Our team is here to help you configure and launch TeemSetu for your organization."
       />
     </>
   );

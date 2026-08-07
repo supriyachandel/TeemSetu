@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const LOGO_RATIO = 1024 / 682;
+
 type LogoProps = {
   height?: number;
   linked?: boolean;
@@ -8,19 +10,19 @@ type LogoProps = {
 };
 
 export default function Logo({
-  height = 44,
+  height = 64,
   linked = true,
   className = "",
 }: LogoProps) {
-  const width = Math.round(height * (629 / 397));
+  const width = Math.round(height * LOGO_RATIO);
 
   const image = (
     <Image
       src="/teamsetu-logo.png"
-      alt="Team Setu"
+      alt="TeemSetu — Connecting Teams, Building Futures."
       width={width}
       height={height}
-      className={`object-contain ${className}`}
+      className={`object-contain object-left ${className}`}
       priority
     />
   );

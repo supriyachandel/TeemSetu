@@ -6,7 +6,7 @@ import { siteConfig, whyPoints } from "@/lib/data";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Team Setu — the all-in-one workforce management platform built for modern organizations.",
+    "Learn about TeemSetu — the all-in-one workforce management platform built for modern organizations.",
 };
 
 export default function AboutPage() {
@@ -15,7 +15,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="Building the Future of Workforce Management"
-        description="Team Setu was built to solve a simple problem — HR, people and business operations shouldn't require a dozen different tools."
+        description="TeemSetu was built to solve a simple problem — HR, people and business operations shouldn't require a dozen different tools."
       />
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">

@@ -1,29 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import SectionHeader from "./SectionHeader";
 import { faqs } from "@/lib/data";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-20">
+    <section className="py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-brand-dark">
-            Frequently Asked Questions
-          </h2>
-          <p className="mt-4 text-muted">
-            Everything you need to know about Team Setu.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="FAQ"
+          title="Frequently Asked Questions"
+          description="Everything you need to know about TeemSetu."
+        />
 
-        <div className="mt-12 divide-y divide-border rounded-xl border border-border">
+        <div className="mt-12 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
           {faqs.map((faq, i) => (
             <div key={faq.question}>
               <button
                 type="button"
-                className="flex w-full items-center justify-between px-6 py-5 text-left"
+                className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-surface"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 aria-expanded={openIndex === i}
               >
@@ -31,7 +29,7 @@ export default function FAQ() {
                   {faq.question}
                 </span>
                 <svg
-                  className={`h-5 w-5 shrink-0 text-brand transition-transform ${
+                  className={`h-5 w-5 shrink-0 text-brand transition-transform duration-200 ${
                     openIndex === i ? "rotate-180" : ""
                   }`}
                   fill="none"
@@ -42,7 +40,7 @@ export default function FAQ() {
                 </svg>
               </button>
               {openIndex === i && (
-                <div className="px-6 pb-5">
+                <div className="border-t border-border bg-surface/50 px-6 py-5">
                   <p className="text-sm leading-relaxed text-muted">{faq.answer}</p>
                 </div>
               )}

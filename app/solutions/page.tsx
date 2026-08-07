@@ -7,7 +7,7 @@ import { roles } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Solutions",
   description:
-    "Discover how Team Setu serves Admins, HR teams, Managers and Employees with role-based workforce management.",
+    "Discover how TeemSetu serves Admins, HR teams, Managers and Employees with role-based workforce management.",
 };
 
 export default function SolutionsPage() {

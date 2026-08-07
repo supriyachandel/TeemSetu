@@ -7,7 +7,7 @@ import { pricingPlans } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Simple, transparent pricing for Team Setu. Choose Starter, Professional or Enterprise plans for your organization.",
+    "Simple, transparent pricing for TeemSetu. Choose Starter, Professional or Enterprise plans for your organization.",
 };
 
 export default function PricingPage() {

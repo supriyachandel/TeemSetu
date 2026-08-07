@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type Role = "admin" | "hr" | "employee";
 
 const roleConfig: Record<
@@ -48,14 +46,9 @@ export default function DashboardMockup({ role = "admin" }: { role?: Role }) {
       aria-label={`${config.title} interface mockup showing workforce management modules`}
     >
       <aside className="hidden w-36 shrink-0 bg-brand-dark p-3 sm:block">
-        <div className="mb-4">
-          <Image
-            src="/teamsetu-logo.png"
-            alt="Team Setu"
-            width={80}
-            height={50}
-            className="h-auto w-full max-w-[100px] object-contain"
-          />
+        <div className="mb-4 px-1">
+          <span className="text-sm font-bold text-white">Teem</span>
+          <span className="text-sm font-bold text-brand-light">Setu</span>
         </div>
         <ul className="space-y-1">
           {config.nav.map((item, i) => (

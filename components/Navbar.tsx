@@ -9,11 +9,11 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur-sm">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Logo height={40} />
+    <header className="sticky top-0 z-50 border-b border-border/80 bg-white/90 backdrop-blur-md">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <Logo height={56} />
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -25,7 +25,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Link
             href="/login"
             className="rounded-lg px-4 py-2 text-sm font-medium text-brand-dark transition-colors hover:bg-surface"
@@ -34,7 +34,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/contact"
-            className="rounded-lg bg-brand px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-dark"
+            className="rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-light hover:shadow-md"
           >
             Book a Demo
           </Link>
@@ -42,7 +42,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-lg p-2 text-brand-dark md:hidden"
+          className="inline-flex items-center justify-center rounded-lg p-2 text-brand-dark lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -60,13 +60,13 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-white px-4 py-4 md:hidden">
+        <div className="border-t border-border bg-white px-4 py-4 lg:hidden">
           <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-muted hover:bg-surface hover:text-brand-dark"
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted hover:bg-surface hover:text-brand-dark"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -75,14 +75,14 @@ export default function Navbar() {
             <hr className="my-2 border-border" />
             <Link
               href="/login"
-              className="rounded-lg px-3 py-2 text-sm font-medium text-brand-dark hover:bg-surface"
+              className="rounded-lg px-3 py-2.5 text-sm font-medium text-brand-dark hover:bg-surface"
               onClick={() => setOpen(false)}
             >
               Login
             </Link>
             <Link
               href="/contact"
-              className="rounded-lg bg-brand px-3 py-2 text-center text-sm font-medium text-white hover:bg-brand-dark"
+              className="rounded-lg bg-brand px-3 py-2.5 text-center text-sm font-semibold text-white"
               onClick={() => setOpen(false)}
             >
               Book a Demo

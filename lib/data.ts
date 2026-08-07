@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "Team Setu",
-  tagline: "Everything You Need to Run Your Workforce, in One Place.",
+  name: "TeemSetu",
+  tagline: "Connecting Teams, Building Futures.",
   description:
     "Manage employees, attendance, leaves, payroll, projects, tasks, reports and company operations from one centralized platform.",
   loginUrl: "/login",
@@ -217,9 +217,9 @@ export const pricingPlans = [
 
 export const faqs = [
   {
-    question: "What is Team Setu?",
+    question: "What is TeemSetu?",
     answer:
-      "Team Setu is an all-in-one workforce management platform that combines HR management, attendance, leave, payroll, projects, tasks, reporting and company administration in a single system.",
+      "TeemSetu is an all-in-one workforce management platform that combines HR management, attendance, leave, payroll, projects, tasks, reporting and company administration in a single system.",
   },
   {
     question: "Who can use the platform?",
@@ -254,7 +254,7 @@ export const faqs = [
   {
     question: "Can the platform support growing teams?",
     answer:
-      "Absolutely. Team Setu is designed to scale from small teams to large organizations with flexible subscription plans and enterprise-grade features.",
+      "Absolutely. TeemSetu is designed to scale from small teams to large organizations with flexible subscription plans and enterprise-grade features.",
   },
 ];
 
@@ -296,7 +296,7 @@ export const resources = [
     title: "Getting Started with HRMS",
     category: "Guide",
     excerpt:
-      "A step-by-step guide to setting up your organization on Team Setu.",
+      "A step-by-step guide to setting up your organization on TeemSetu.",
     date: "Jul 15, 2026",
   },
   {
