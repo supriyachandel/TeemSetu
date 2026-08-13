@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 type Role = "admin" | "hr" | "employee";
 
@@ -121,6 +121,47 @@ export default function DashboardMockup({ role = "admin" }: { role?: string }) {
   const activeRole = (role === "hr" || role === "employee" || role === "admin" ? role : "admin") as Role;
   const config = roleConfigs[activeRole];
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ scale: 1, height: 0 });
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const containerWidth = entry.contentRect.width;
+        const child = container.firstElementChild as HTMLElement;
+        if (child) {
+          // Reset styles temporarily to measure natural dimensions
+          const originalTransform = child.style.transform;
+          const originalTransformOrigin = child.style.transformOrigin;
+          const originalPosition = child.style.position;
+          child.style.transform = "none";
+          child.style.transformOrigin = "";
+          child.style.position = "static";
+
+          const naturalWidth = child.offsetWidth;
+          const naturalHeight = child.offsetHeight;
+
+          child.style.transform = originalTransform;
+          child.style.transformOrigin = originalTransformOrigin;
+          child.style.position = originalPosition;
+
+          if (naturalWidth > containerWidth && containerWidth > 0) {
+            const scale = containerWidth / naturalWidth;
+            setDimensions({ scale, height: naturalHeight * scale });
+          } else {
+            setDimensions({ scale: 1, height: naturalHeight });
+          }
+        }
+      }
+    });
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
   // Helper arrays for UI mapping
   const heatmapRows = [
     { label: "19:00", cells: [0.1, 0.05, 0.12, 0.08, 0.1, 0.03, 0.02] },
@@ -134,10 +175,25 @@ export default function DashboardMockup({ role = "admin" }: { role?: string }) {
 
   return (
     <div 
-      className="flex h-[200px] w-[310px] sm:h-[280px] sm:w-[450px] md:h-[350px] md:w-[580px] lg:h-[430px] lg:w-[780px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800 shadow-[0_20px_50px_rgba(15,23,42,0.08)] backdrop-blur-2xl transition-all duration-300"
-      role="img"
-      aria-label={`${config.title} Command Center`}
+      ref={containerRef}
+      className="w-full relative overflow-visible flex justify-center"
+      style={{ height: dimensions.height ? `${dimensions.height}px` : "auto" }}
     >
+      <div
+        style={{
+          transform: dimensions.scale !== 1 ? `scale(${dimensions.scale})` : undefined,
+          transformOrigin: "top left",
+          position: dimensions.scale !== 1 ? "absolute" : "relative",
+          width: "max-content",
+          top: 0,
+          left: 0,
+        }}
+      >
+        <div 
+          className="flex h-[200px] w-[310px] sm:h-[280px] sm:w-[450px] md:h-[350px] md:w-[580px] lg:h-[430px] lg:w-[780px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800 shadow-[0_20px_50px_rgba(15,23,42,0.08)] backdrop-blur-2xl transition-all duration-300"
+          role="img"
+          aria-label={`${config.title} Command Center`}
+        >
       {/* 1. Left Sidebar */}
       <aside className="w-20 sm:w-28 md:w-36 shrink-0 border-r border-slate-100 bg-slate-50/80 p-1.5 sm:p-2.5 flex flex-col justify-between">
         <div>
@@ -403,7 +459,9 @@ export default function DashboardMockup({ role = "admin" }: { role?: string }) {
             </div>
           </div>
         </div>
+        </div>
       </div>
+    </div>
     </div>
   );
 }

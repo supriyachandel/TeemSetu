@@ -65,12 +65,8 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-brand/5 blur-3xl opacity-30 pointer-events-none animate-glow" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div
-              className={`grid items-center gap-16 lg:grid-cols-2 ${
-                i % 2 === 1 ? "lg:[direction:rtl]" : ""
-              }`}
-            >
-              <div className={i % 2 === 1 ? "lg:[direction:ltr]" : ""}>
+            <div className="grid items-center gap-16 lg:grid-cols-2">
+              <div className={i % 2 === 1 ? "lg:order-2" : "lg:order-1"}>
                 <p className="text-sm font-bold uppercase tracking-widest text-brand">
                   Feature Highlight
                 </p>
@@ -98,7 +94,7 @@ export default function Home() {
               </div>
               <div
                 className={`relative rounded-2xl border border-slate-200 bg-white p-3 shadow-xl backdrop-blur-md animate-float ${
-                  i % 2 === 1 ? "lg:[direction:ltr]" : ""
+                  i % 2 === 1 ? "lg:order-1" : "lg:order-2"
                 }`}
               >
                 <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-brand/5 to-blue-600/5 blur-xl opacity-40 pointer-events-none" />
