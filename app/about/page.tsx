@@ -3,7 +3,6 @@ import PageHeader from "@/components/PageHeader";
 import CTA from "@/components/CTA";
 import { siteConfig, whyPoints } from "@/lib/data";
 
-
 export const metadata: Metadata = {
   title: "About",
   description:
@@ -18,11 +17,11 @@ export default function AboutPage() {
         title="Building the Future of Workforce Management"
         description="TeemSetu was built to solve a simple problem — HR, people and business operations shouldn't require a dozen different tools."
       />
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl font-bold text-brand-dark">Our Mission</h2>
-            <p className="mt-4 text-muted leading-relaxed">
+          <div className="prose prose-lg max-w-none text-slate-600 font-medium">
+            <h2 className="text-2xl font-extrabold tracking-tight text-slate-800">Our Mission</h2>
+            <p className="mt-4 leading-relaxed">
               We believe every organization deserves access to modern workforce
               management tools — without the complexity of enterprise software
               or the limitations of basic HR templates. {siteConfig.name} brings
@@ -30,24 +29,24 @@ export default function AboutPage() {
               tasks, reporting and communication in one unified platform.
             </p>
 
-            <h2 className="mt-12 text-2xl font-bold text-brand-dark">
+            <h2 className="mt-12 text-2xl font-extrabold tracking-tight text-slate-800">
               What Makes Us Different
             </h2>
             <ul className="mt-6 space-y-4">
               {whyPoints.map((point) => (
-                <li key={point} className="flex items-start gap-3 text-muted">
+                <li key={point} className="flex items-start gap-3 text-slate-700 font-semibold">
                   <svg className="mt-1 h-5 w-5 shrink-0 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                   {point}
                 </li>
               ))}
             </ul>
 
-            <h2 className="mt-12 text-2xl font-bold text-brand-dark">
+            <h2 className="mt-12 text-2xl font-extrabold tracking-tight text-slate-800">
               Built on Real Product Experience
             </h2>
-            <p className="mt-4 text-muted leading-relaxed">
+            <p className="mt-4 leading-relaxed">
               Our marketing website reflects the actual product — with Admin, HR
               and Employee dashboards that serve real organizations every day.
               We don&apos;t promise features we haven&apos;t built, and we

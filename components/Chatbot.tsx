@@ -164,6 +164,7 @@ export default function Chatbot() {
           name: leadName,
           email: leadEmail,
           phone: leadPhone,
+          source: "chatbot",
         }),
       });
 
@@ -572,7 +573,7 @@ export default function Chatbot() {
 
       {/* Chat Window Panel */}
       <div
-        className={`fixed right-6 z-50 flex w-96 max-w-[calc(100vw-2rem)] flex-col rounded-2xl border border-border/60 bg-white/95 shadow-2xl backdrop-blur-xl transition-all duration-300 ${
+        className={`fixed right-6 z-50 flex w-96 max-w-[calc(100vw-2rem)] flex-col rounded-2xl border border-slate-200 bg-white shadow-[0_15px_50px_rgba(15,23,42,0.1)] backdrop-blur-xl transition-all duration-300 ${
           isOpen
             ? "bottom-24 scale-100 opacity-100 pointer-events-auto"
             : "bottom-16 scale-95 opacity-0 pointer-events-none"
@@ -580,20 +581,20 @@ export default function Chatbot() {
         style={{ height: "520px", maxHeight: "80vh" }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-border/60 bg-brand-dark px-5 py-4 rounded-t-2xl text-white">
+        <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-5 py-4 rounded-t-2xl text-slate-800">
           <div className="flex items-center gap-3">
             <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-brand text-lg font-bold text-white shadow-inner">
               S
-              <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-brand-light border-2 border-brand-dark" />
+              <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-brand-light border-2 border-slate-50" />
             </div>
             <div>
-              <h3 className="font-semibold leading-tight text-sm">Setu Assistant</h3>
-              <p className="text-xs text-white/70">Online • Product Expert</p>
+              <h3 className="font-bold leading-tight text-sm">Setu Assistant</h3>
+              <p className="text-xs text-slate-500">Online • Product Expert</p>
             </div>
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="rounded-lg p-1 text-white/70 hover:bg-white/10 hover:text-white transition-colors"
+            className="rounded-lg p-1 text-slate-500 hover:bg-slate-200 hover:text-slate-800 transition-colors"
             aria-label="Close chat"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -603,24 +604,24 @@ export default function Chatbot() {
         </div>
 
         {showLeadForm ? (
-          <form onSubmit={handleLeadSubmit} className="flex flex-1 flex-col justify-between p-6">
+        <form onSubmit={handleLeadSubmit} className="flex flex-1 flex-col justify-between p-6">
             <div className="space-y-4">
               <div>
-                <h4 className="text-base font-bold text-brand-dark">Welcome! Let's get started</h4>
-                <p className="text-xs text-muted mt-1 leading-normal">
+                <h4 className="text-base font-bold text-slate-800">Welcome! Let's get started</h4>
+                <p className="text-xs text-slate-500 mt-1.5 leading-relaxed font-semibold">
                   Please enter your basic details to start a chat with our product expert.
                 </p>
               </div>
 
               {leadError && (
-                <div className="rounded-lg bg-red-50 p-3 text-xs font-medium text-red-600 border border-red-100">
+                <div className="rounded-lg bg-red-50 p-3 text-xs font-semibold text-red-600 border border-red-100">
                   {leadError}
                 </div>
               )}
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <div>
-                  <label htmlFor="lead-name" className="block text-[11px] font-semibold text-brand-dark uppercase tracking-wider mb-1">
+                  <label htmlFor="lead-name" className="block text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-1.5">
                     Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -630,12 +631,12 @@ export default function Chatbot() {
                     value={leadName}
                     onChange={(e) => setLeadName(e.target.value)}
                     placeholder="John Doe"
-                    className="w-full rounded-lg border border-border bg-white px-3 py-2 text-sm text-brand-dark focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all placeholder:text-muted/60"
+                    className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800 focus:bg-white focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all placeholder:text-slate-400 font-semibold"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="lead-email" className="block text-[11px] font-semibold text-brand-dark uppercase tracking-wider mb-1">
+                  <label htmlFor="lead-email" className="block text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-1.5">
                     Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -645,12 +646,12 @@ export default function Chatbot() {
                     value={leadEmail}
                     onChange={(e) => setLeadEmail(e.target.value)}
                     placeholder="john@example.com"
-                    className="w-full rounded-lg border border-border bg-white px-3 py-2 text-sm text-brand-dark focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all placeholder:text-muted/60"
+                    className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800 focus:bg-white focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all placeholder:text-slate-400 font-semibold"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="lead-phone" className="block text-[11px] font-semibold text-brand-dark uppercase tracking-wider mb-1">
+                  <label htmlFor="lead-phone" className="block text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-1.5">
                     Phone Number
                   </label>
                   <input
@@ -659,7 +660,7 @@ export default function Chatbot() {
                     value={leadPhone}
                     onChange={(e) => setLeadPhone(e.target.value)}
                     placeholder="+1 (555) 019-2834"
-                    className="w-full rounded-lg border border-border bg-white px-3 py-2 text-sm text-brand-dark focus:border-brand/50 focus:outline-none focus:ring-1 focus:ring-brand/30 transition-all placeholder:text-muted/60"
+                    className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800 focus:bg-white focus:border-brand/50 focus:outline-none focus:ring-2 focus:ring-brand/20 transition-all placeholder:text-slate-400 font-semibold"
                   />
                 </div>
               </div>
@@ -668,7 +669,7 @@ export default function Chatbot() {
             <button
               type="submit"
               disabled={isSubmittingLead}
-              className="mt-6 w-full rounded-xl bg-brand py-3 text-sm font-semibold text-white shadow-md hover:bg-brand-light active:scale-95 disabled:bg-border disabled:text-muted disabled:scale-100 transition-all flex items-center justify-center gap-2"
+              className="mt-6 w-full rounded-xl bg-brand py-3 text-sm font-bold text-white shadow-md hover:bg-brand-light active:scale-95 disabled:bg-slate-100 disabled:text-slate-400 disabled:scale-100 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               {isSubmittingLead ? (
                 <>
@@ -686,19 +687,19 @@ export default function Chatbot() {
         ) : (
           <>
             {/* Message Area */}
-            <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4 text-sm scrollbar-thin">
+            <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4 text-sm scrollbar-thin bg-slate-50/50">
               {messages.map((msg) => (
                 <div key={msg.id} className={`flex flex-col ${msg.sender === "user" ? "items-end" : "items-start"}`}>
                   <div
                     className={`max-w-[85%] rounded-2xl px-4 py-3 shadow-sm ${
                       msg.sender === "user"
                         ? "bg-brand text-white rounded-tr-none"
-                        : "bg-surface border border-border/50 text-brand-dark rounded-tl-none"
+                        : "bg-white border border-slate-200/60 text-slate-700 rounded-tl-none"
                     }`}
                   >
                     <div className="whitespace-pre-wrap">{msg.sender === "bot" ? formatText(msg.text) : msg.text}</div>
                   </div>
-                  <span className="mt-1 text-[10px] text-muted px-1">
+                  <span className="mt-1 text-[10px] text-slate-400 px-1 font-semibold">
                     {msg.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                   </span>
 
@@ -709,7 +710,7 @@ export default function Chatbot() {
                         <button
                           key={suggestion}
                           onClick={() => handleSendMessage(suggestion)}
-                          className="rounded-full border border-brand/30 bg-brand/5 px-3 py-1.5 text-xs font-medium text-brand hover:bg-brand hover:text-white transition-all hover:shadow-sm"
+                          className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-600 hover:border-brand/45 hover:bg-brand/[0.04] hover:text-brand transition-all cursor-pointer"
                         >
                           {suggestion}
                         </button>
@@ -722,10 +723,10 @@ export default function Chatbot() {
               {/* Typing Indicator */}
               {isTyping && (
                 <div className="flex flex-col items-start">
-                  <div className="bg-surface border border-border/50 rounded-2xl rounded-tl-none px-4 py-3 flex items-center gap-1">
-                    <span className="h-2 w-2 animate-bounce rounded-full bg-brand-dark/40" style={{ animationDelay: "0ms" }}></span>
-                    <span className="h-2 w-2 animate-bounce rounded-full bg-brand-dark/40" style={{ animationDelay: "150ms" }}></span>
-                    <span className="h-2 w-2 animate-bounce rounded-full bg-brand-dark/40" style={{ animationDelay: "300ms" }}></span>
+                  <div className="bg-white border border-slate-200/60 rounded-2xl rounded-tl-none px-4 py-3 flex items-center gap-1">
+                    <span className="h-2 w-2 animate-bounce rounded-full bg-slate-400" style={{ animationDelay: "0ms" }}></span>
+                    <span className="h-2 w-2 animate-bounce rounded-full bg-slate-400" style={{ animationDelay: "150ms" }}></span>
+                    <span className="h-2 w-2 animate-bounce rounded-full bg-slate-400" style={{ animationDelay: "300ms" }}></span>
                   </div>
                 </div>
               )}
@@ -734,20 +735,20 @@ export default function Chatbot() {
             </div>
 
             {/* Input area */}
-            <div className="border-t border-border/60 bg-surface/50 p-3 rounded-b-2xl">
-              <div className="flex items-center gap-2 rounded-xl border border-border/80 bg-white px-3 py-2 shadow-sm focus-within:border-brand/50 focus-within:ring-1 focus-within:ring-brand/30 transition-all">
+            <div className="border-t border-slate-100 bg-slate-50 p-3 rounded-b-2xl">
+              <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm focus-within:border-brand/50 focus-within:ring-2 focus-within:ring-brand/20 transition-all">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyPress}
                   placeholder="Ask a question..."
-                  className="flex-1 bg-transparent text-sm text-brand-dark focus:outline-none placeholder:text-muted"
+                  className="flex-1 bg-transparent text-sm text-slate-800 focus:outline-none placeholder:text-slate-400 font-semibold"
                 />
                 <button
                   onClick={() => handleSendMessage()}
                   disabled={!input.trim()}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-white transition-all hover:bg-brand-light active:scale-95 disabled:bg-border disabled:text-muted/50 disabled:scale-100"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-white transition-all hover:bg-brand-light active:scale-95 disabled:bg-slate-100 disabled:text-slate-400 disabled:scale-100 cursor-pointer"
                   aria-label="Send message"
                 >
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

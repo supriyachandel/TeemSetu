@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const LOGO_RATIO = 1024 / 682;
+const LOGO_RATIO = 1024 / 647;
 
 type LogoProps = {
   height?: number;
@@ -18,7 +18,7 @@ export default function Logo({
 
   const image = (
     <Image
-      src="/teamsetu-logo.png"
+      src="/logo-v5.png"
       alt="TeemSetu — Connecting Teams, Building Futures."
       width={width}
       height={height}
