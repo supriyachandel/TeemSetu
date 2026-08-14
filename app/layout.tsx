@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
+import ParticleBackground from "@/components/ParticleBackground";
 import { siteConfig } from "@/lib/data";
 
 const geistSans = Geist({
@@ -44,10 +45,17 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className="flex min-h-full flex-col relative bg-white">
+        {/* Persistent background constellation for all pages */}
+        <div className="fixed inset-0 h-full w-full pointer-events-none z-0 opacity-30">
+          <ParticleBackground />
+        </div>
+
+        <div className="relative z-10 flex min-h-full flex-col flex-1">
+          <Navbar />
+          <main className="flex-1 relative">{children}</main>
+          <Footer />
+        </div>
         <Chatbot />
       </body>
     </html>

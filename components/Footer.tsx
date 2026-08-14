@@ -4,21 +4,21 @@ import { navLinks, siteConfig } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-brand-dark text-white">
+    <footer className="border-t border-slate-200/60 bg-slate-50 text-slate-800">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-1">
-            <div className="inline-block rounded-2xl bg-white p-4 shadow-lg">
-              <Logo height={80} linked={false} />
+            <div className="inline-block rounded-2xl bg-white border border-slate-100 p-4 shadow-md">
+              <Logo height={64} linked={false} />
             </div>
-            <p className="mt-6 text-sm leading-relaxed text-white/70">
+            <p className="mt-6 text-sm leading-relaxed text-slate-500">
               {siteConfig.tagline} All-in-one workforce management for modern
               organizations.
             </p>
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/40">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400">
               Product
             </h3>
             <ul className="mt-5 space-y-3">
@@ -26,7 +26,7 @@ export default function Footer() {
                 <li key={label}>
                   <Link
                     href={`/${label.toLowerCase()}`}
-                    className="text-sm text-white/75 transition-colors hover:text-white"
+                    className="text-sm font-medium text-slate-500 transition-colors hover:text-brand"
                   >
                     {label}
                   </Link>
@@ -36,7 +36,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/40">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400">
               Company
             </h3>
             <ul className="mt-5 space-y-3">
@@ -48,7 +48,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/75 transition-colors hover:text-white"
+                    className="text-sm font-medium text-slate-500 transition-colors hover:text-brand"
                   >
                     {link.label}
                   </Link>
@@ -58,17 +58,17 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/40">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400">
               Get Started
             </h3>
             <ul className="mt-5 space-y-3">
               <li>
-                <Link href="/contact" className="text-sm text-white/75 hover:text-white">
+                <Link href="/contact" className="text-sm font-medium text-slate-500 hover:text-brand transition-colors">
                   Book a Demo
                 </Link>
               </li>
               <li>
-                <Link href="/login" className="text-sm text-white/75 hover:text-white">
+                <Link href={siteConfig.loginUrl} className="text-sm font-medium text-slate-500 hover:text-brand transition-colors">
                   Login
                 </Link>
               </li>
@@ -76,8 +76,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-sm text-white/40">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-slate-200/60 pt-8 sm:flex-row">
+          <p className="text-sm font-medium text-slate-400">
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
           <div className="flex gap-8">
@@ -85,7 +85,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-white/40 transition-colors hover:text-white/70"
+                className="text-sm font-medium text-slate-400 transition-colors hover:text-brand"
               >
                 {link.label}
               </Link>

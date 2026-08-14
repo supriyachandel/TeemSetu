@@ -23,27 +23,27 @@ export default function PricingCard({
     <div
       className={`relative flex flex-col rounded-2xl border p-8 transition-all duration-300 ${
         highlighted
-          ? "scale-[1.02] border-brand bg-brand-dark text-white shadow-xl shadow-brand-dark/20"
-          : "border-border bg-white hover:shadow-lg hover:shadow-brand-dark/5"
+          ? "scale-[1.02] border-brand bg-gradient-to-b from-[#0B2B66] to-[#071023] text-white shadow-[0_24px_60px_rgba(15,23,42,0.3)] ring-1 ring-brand/40"
+          : "border-slate-200 bg-white text-gray-900 shadow-[0_8px_24px_rgba(15,23,42,0.06)] hover:border-brand/40 hover:shadow-[0_16px_40px_rgba(15,23,42,0.1)]"
       }`}
     >
       {highlighted && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand px-4 py-1 text-xs font-semibold text-white">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand px-4 py-1 text-xs font-bold text-white shadow-lg shadow-brand/25">
           Most Popular
         </span>
       )}
-      <h3 className={`text-lg font-semibold ${highlighted ? "text-white" : "text-brand-dark"}`}>
+      <h3 className={`text-lg font-bold ${highlighted ? "text-white" : "text-gray-900"}`}>
         {name}
       </h3>
       <div className="mt-4 flex items-baseline gap-1">
-        <span className={`text-4xl font-bold ${highlighted ? "text-white" : "text-brand-dark"}`}>
+        <span className={`text-4xl font-extrabold tracking-tight ${highlighted ? "text-white" : "text-gray-900"}`}>
           {price}
         </span>
         {period && (
-          <span className={highlighted ? "text-white/70" : "text-muted"}>{period}</span>
+          <span className={highlighted ? "text-white/70 font-semibold" : "text-gray-500 font-semibold"}>{period}</span>
         )}
       </div>
-      <p className={`mt-3 text-sm ${highlighted ? "text-white/80" : "text-muted"}`}>
+      <p className={`mt-3 text-sm leading-relaxed ${highlighted ? "text-white/80" : "text-gray-600"}`}>
         {description}
       </p>
       <ul className="mt-8 flex-1 space-y-3">
@@ -55,18 +55,18 @@ export default function PricingCard({
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
             </svg>
-            <span className={highlighted ? "text-white/90" : "text-brand-dark"}>{feature}</span>
+            <span className={highlighted ? "text-white/90 font-medium" : "text-gray-700 font-medium"}>{feature}</span>
           </li>
         ))}
       </ul>
       <Link
         href="/contact"
-        className={`mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold transition-all ${
+        className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-bold transition-all hover:scale-105 active:scale-98 ${
           highlighted
-            ? "bg-brand text-white hover:bg-brand-light"
-            : "bg-brand-dark text-white hover:bg-brand-dark/90"
+            ? "bg-gradient-to-r from-brand to-emerald-600 text-white shadow-[0_4px_15px_rgba(34,197,94,0.25)] hover:shadow-[0_6px_25px_rgba(34,197,94,0.45)]"
+            : "border border-slate-300 bg-white text-gray-800 hover:border-brand hover:bg-brand/[0.04] hover:text-brand"
         }`}
       >
         {cta}

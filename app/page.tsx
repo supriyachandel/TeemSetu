@@ -26,7 +26,8 @@ export default function Home() {
       <DashboardShowcase />
       <RoleSection />
 
-      <section className="py-24">
+      {/* Core Features Grid */}
+      <section className="py-24 relative border-b border-slate-200/60 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Features"
@@ -38,46 +39,48 @@ export default function Home() {
               <FeatureCard key={feature.title} {...feature} href="/features" />
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-12 text-center">
             <Link
               href="/features"
-              className="inline-flex items-center rounded-lg border border-border bg-white px-6 py-3 text-sm font-semibold text-brand-dark shadow-sm transition-all hover:border-brand/30 hover:shadow-md"
+              className="inline-flex items-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-slate-700 shadow-[0_4px_14px_rgba(15,23,42,0.06)] transition-all hover:bg-slate-50 hover:border-brand/40 hover:text-brand hover:scale-105 active:scale-98"
             >
               View all features
-              <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg className="ml-2 h-4 w-4 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
           </div>
         </div>
       </section>
 
+      {/* Feature Showcases */}
       {homepageShowcases.map((showcase, i) => (
         <section
           key={showcase.title}
-          className={`py-24 ${i % 2 === 1 ? "bg-surface" : ""}`}
+          className={`py-24 border-b border-slate-200/60 relative ${
+            i % 2 === 1 ? "bg-slate-50/50 backdrop-blur-sm" : "bg-white"
+          }`}
         >
+          {/* Subtle background blob for visual richness */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-brand/5 blur-3xl opacity-30 pointer-events-none animate-glow" />
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div
-              className={`grid items-center gap-16 lg:grid-cols-2 ${
-                i % 2 === 1 ? "lg:[direction:rtl]" : ""
-              }`}
-            >
-              <div className={i % 2 === 1 ? "lg:[direction:ltr]" : ""}>
-                <p className="text-sm font-semibold uppercase tracking-widest text-brand">
+            <div className="grid items-center gap-16 lg:grid-cols-2">
+              <div className={i % 2 === 1 ? "lg:order-2" : "lg:order-1"}>
+                <p className="text-sm font-bold uppercase tracking-widest text-brand">
                   Feature Highlight
                 </p>
-                <h2 className="mt-3 text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl">
+                <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl">
                   {showcase.title}
                 </h2>
-                <p className="mt-5 text-lg leading-relaxed text-muted">
+                <p className="mt-5 text-lg leading-relaxed text-slate-500 font-semibold">
                   {showcase.description}
                 </p>
                 <ul className="mt-8 space-y-3">
                   {showcase.items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-center gap-3 text-sm font-medium text-brand-dark"
+                      className="flex items-center gap-3 text-sm font-bold text-slate-700"
                     >
                       <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand/10 text-brand">
                         <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,10 +93,11 @@ export default function Home() {
                 </ul>
               </div>
               <div
-                className={`rounded-2xl border border-border bg-white p-3 shadow-xl shadow-brand-dark/5 ${
-                  i % 2 === 1 ? "lg:[direction:ltr]" : ""
+                className={`relative rounded-2xl border border-slate-200 bg-white p-3 shadow-xl backdrop-blur-md animate-float ${
+                  i % 2 === 1 ? "lg:order-1" : "lg:order-2"
                 }`}
               >
+                <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-brand/5 to-blue-600/5 blur-xl opacity-40 pointer-events-none" />
                 <DashboardMockup
                   role={i === 2 ? "employee" : i === 1 ? "hr" : "admin"}
                 />
@@ -103,7 +107,10 @@ export default function Home() {
         </section>
       ))}
 
-      <section className="bg-brand-dark py-24 text-white">
+      {/* How It Works Step cards */}
+      <section className="border-b border-slate-200/60 bg-gradient-to-b from-slate-50 to-white py-24 text-slate-800 relative">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-blue-600/5 blur-3xl opacity-30 pointer-events-none animate-glow" />
+        
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="How It Works"
@@ -130,18 +137,19 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.step}
-                className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
+                className="group rounded-2xl border border-slate-200 bg-white p-8 hover:border-brand/40 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-brand/5"
               >
-                <span className="text-3xl font-bold text-brand-light">{item.step}</span>
-                <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">{item.desc}</p>
+                <span className="text-3xl font-extrabold text-brand-light bg-gradient-to-r from-brand to-emerald-400 bg-clip-text text-transparent drop-shadow-sm">{item.step}</span>
+                <h3 className="mt-4 text-xl font-extrabold text-slate-800">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-500 font-semibold">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24">
+      {/* Why TeemSetu points */}
+      <section className="py-24 relative border-b border-slate-200/60 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Why TeemSetu"
@@ -152,21 +160,22 @@ export default function Home() {
             {whyPoints.map((point) => (
               <div
                 key={point}
-                className="flex items-start gap-4 rounded-2xl border border-border bg-white p-6 transition-all hover:shadow-md"
+                className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-brand/40 hover:shadow-xl shadow-sm"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-50 border border-slate-200 text-brand group-hover:bg-brand group-hover:text-white transition-all shadow-sm">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                 </span>
-                <span className="text-sm font-medium leading-relaxed text-brand-dark">{point}</span>
+                <span className="text-sm font-bold leading-relaxed text-slate-700">{point}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-surface py-24">
+      {/* Pricing Section */}
+      <section className="border-b border-slate-200/60 bg-slate-50/50 py-24 relative">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Pricing"
@@ -178,10 +187,10 @@ export default function Home() {
               <PricingCard key={plan.name} {...plan} />
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-12 text-center">
             <Link
               href="/pricing"
-              className="text-sm font-semibold text-brand hover:text-brand-dark"
+              className="text-sm font-bold text-brand hover:text-brand-light transition-colors"
             >
               View full pricing details →
             </Link>

@@ -4,7 +4,7 @@ import { roles } from "@/lib/data";
 
 export default function RoleSection() {
   return (
-    <section className="bg-surface py-24">
+    <section className="border-y border-slate-200/60 bg-slate-50/50 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Solutions"
@@ -16,21 +16,21 @@ export default function RoleSection() {
           {roles.map((role) => (
             <div
               key={role.id}
-              className="group flex flex-col rounded-2xl border border-border bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-dark/5"
+              className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-xl shadow-sm"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-dark text-xl font-bold text-white">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-emerald-600 text-xl font-bold text-white shadow-lg shadow-brand/20">
                 {role.title[0]}
               </div>
-              <h3 className="mt-6 text-xl font-bold text-brand-dark">{role.title}</h3>
-              <p className="mt-2 text-sm font-semibold text-brand">{role.tagline}</p>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+              <h3 className="mt-6 text-xl font-extrabold text-slate-800">{role.title}</h3>
+              <p className="mt-2 text-sm font-bold text-brand">{role.tagline}</p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-500">
                 {role.description}
               </p>
-              <ul className="mt-6 space-y-2 border-t border-border pt-6">
+              <ul className="mt-6 space-y-2 border-t border-slate-100 pt-6">
                 {role.modules.slice(0, 5).map((mod) => (
-                  <li key={mod} className="flex items-center gap-2 text-sm text-brand-dark">
+                  <li key={mod} className="flex items-center gap-2 text-sm text-slate-600 font-medium">
                     <svg className="h-4 w-4 shrink-0 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                     {mod}
                   </li>
@@ -38,10 +38,10 @@ export default function RoleSection() {
               </ul>
               <Link
                 href={role.href}
-                className="mt-8 inline-flex items-center text-sm font-semibold text-brand transition-colors group-hover:text-brand-dark"
+                className="mt-8 inline-flex items-center text-sm font-bold text-brand transition-colors group-hover:text-brand-light"
               >
                 Explore {role.title} Solution
-                <svg className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>

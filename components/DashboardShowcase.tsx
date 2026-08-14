@@ -10,7 +10,7 @@ export default function DashboardShowcase() {
   const activeRole = roles[active];
 
   return (
-    <section className="py-24">
+    <section className="py-24 bg-slate-50/50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Product Preview"
@@ -19,16 +19,16 @@ export default function DashboardShowcase() {
         />
 
         <div className="mt-12 flex justify-center">
-          <div className="inline-flex rounded-xl border border-border bg-surface p-1.5 shadow-sm">
+          <div className="inline-flex rounded-full border border-slate-200 bg-slate-100/60 p-1.5 shadow-sm backdrop-blur-md">
             {roles.map((role, i) => (
               <button
                 key={role.id}
                 type="button"
                 onClick={() => setActive(i)}
-                className={`rounded-lg px-5 py-2.5 text-sm font-semibold transition-all ${
+                className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${
                   active === i
-                    ? "bg-brand-dark text-white shadow-sm"
-                    : "text-muted hover:text-brand-dark"
+                    ? "bg-brand text-white shadow-sm"
+                    : "text-slate-500 hover:text-slate-800"
                 }`}
               >
                 {role.title}
@@ -39,18 +39,18 @@ export default function DashboardShowcase() {
 
         <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
           <div className="order-2 lg:order-1">
-            <h3 className="text-2xl font-bold text-brand-dark">
+            <h3 className="text-2xl font-black text-slate-800">
               {activeRole.title} Experience
             </h3>
-            <p className="mt-2 text-lg font-medium text-brand">
+            <p className="mt-2 text-lg font-semibold text-brand">
               {activeRole.tagline}
             </p>
-            <p className="mt-4 leading-relaxed text-muted">{activeRole.description}</p>
+            <p className="mt-4 leading-relaxed text-slate-500">{activeRole.description}</p>
             <ul className="mt-8 grid grid-cols-2 gap-3">
               {activeRole.modules.slice(0, 8).map((mod) => (
                 <li
                   key={mod}
-                  className="flex items-center gap-2.5 rounded-lg border border-border bg-surface px-3 py-2 text-sm text-brand-dark"
+                  className="flex items-center gap-2.5 rounded-lg border border-slate-100 bg-white px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:border-slate-200 transition-all duration-200 shadow-sm"
                 >
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
                   {mod}
@@ -58,9 +58,10 @@ export default function DashboardShowcase() {
               ))}
             </ul>
           </div>
-          <div className="order-1 lg:order-2">
-            <div className="rounded-2xl border border-border bg-white p-3 shadow-xl shadow-brand-dark/5">
-              <DashboardMockup role={activeRole.id as "admin" | "hr" | "employee"} />
+          <div className="order-1 lg:order-2 relative">
+            <div className="absolute -inset-4 bg-blue-600/5 blur-2xl opacity-40 rounded-2xl animate-glow" />
+            <div className="relative rounded-2xl border border-slate-200 bg-white/70 p-3 shadow-xl backdrop-blur-sm animate-float">
+              <DashboardMockup role={activeRole.id} />
             </div>
           </div>
         </div>
