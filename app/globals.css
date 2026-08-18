@@ -125,3 +125,19 @@ html {
   animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Logo dynamic theme support */
+.logo-light {
+  display: inline-block !important;
+}
+.logo-dark {
+  display: none !important;
+}
+
+/* Class-based theme overrides (e.g. from explicit dark class on html or body) */
+html.dark .logo-light, body.dark .logo-light, .dark .logo-light {
+  display: none !important;
+}
+html.dark .logo-dark, body.dark .logo-dark, .dark .logo-dark {
+  display: inline-block !important;
+}
+
