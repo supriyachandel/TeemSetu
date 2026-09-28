@@ -17,14 +17,24 @@ export default function Logo({
   const width = Math.round(height * LOGO_RATIO);
 
   const image = (
-    <Image
-      src="/logo-v5.png"
-      alt="TeemSetu — Connecting Teams, Building Futures."
-      width={width}
-      height={height}
-      className={`object-contain object-left ${className}`}
-      priority
-    />
+    <>
+      <Image
+        src="/logo-light.png"
+        alt="TeemSetu — Connecting Teams, Building Futures."
+        width={width}
+        height={height}
+        className={`object-contain object-left logo-light ${className}`}
+        priority
+      />
+      <Image
+        src="/logo-dark.png"
+        alt="TeemSetu — Connecting Teams, Building Futures."
+        width={width}
+        height={height}
+        className={`object-contain object-left logo-dark ${className}`}
+        priority
+      />
+    </>
   );
 
   if (linked) {
